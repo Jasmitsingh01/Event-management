@@ -19,12 +19,11 @@ function App() {
     if (Guest && Guest !== "") {
       setIsGuest(true);
     }
-  }, []);
-
+  },[]);
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Register />} />
+      <Route path="/login" element={isAuthenticated ? <Navigate to={'/'}/> : isGuest ?<Navigate to={'/'}/> :<Login />} />
+      <Route path="/signup" element={isAuthenticated ? <Navigate to={'/'}/> : isGuest ?<Navigate to={'/'}/>:<Register />} />
       <Route
         path="/"
         element={
@@ -46,13 +45,7 @@ function App() {
       <Route
         path="/profile"
         element={
-          isAuthenticated ? (
-            <Profile isGuest={isGuest} />
-          ) : isGuest ? (
-            <Profile isGuest={isGuest} />
-          ) : (
-            <Navigate to={"/login"} />
-          )
+          isAuthenticated ? <Profile isGuest={isGuest}/> : isGuest ?<Profile isGuest={isGuest}/> :<Navigate to={'/login'}/>
         }
       />
       <Route

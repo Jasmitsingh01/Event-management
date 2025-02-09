@@ -1,15 +1,16 @@
 import { useMutation ,useQueryClient} from "@tanstack/react-query";
 import { Event } from "../..";
-export default function DeleteEvent(){
+export default function DeleteEvent(handleClose){
     const queryClient=useQueryClient()
     const mutation=useMutation({
-        mutationKey:['Event'],
+        mutationKey:['all-event'],
         mutationFn:async function(data) {
             const user= await Event.delete(`/remove/${data}`);
-            return user.data?.data
+            return user.data
         }, 
         onSuccess:()=>{
-            queryClient.invalidateQueries(['Event'])
+            queryClient.invalidateQueries(['all-event'])
+            handleClose();
         }
 
         

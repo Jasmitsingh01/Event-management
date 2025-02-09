@@ -1,15 +1,16 @@
 import { useMutation ,useQueryClient} from "@tanstack/react-query";
 import { Event } from "../..";
-export default function EditEvent(){
+export default function EditEvent(handleClose){
     const queryClient=useQueryClient()
     const mutation=useMutation({
-        mutationKey:['Event'],
+        mutationKey:['all-event'],
         mutationFn:async function(data) {
             const user= await Event.put(`/update/${data?.id}`,data?.data);
             return user.data?.data
         }, 
         onSuccess:()=>{
-            queryClient.invalidateQueries(['Event'])
+            queryClient.invalidateQueries(['all-event']);
+            handleClose()
         }
 
         

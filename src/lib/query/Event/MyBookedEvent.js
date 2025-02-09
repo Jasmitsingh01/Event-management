@@ -1,13 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { Event } from "../..";
 
-export default function AllEvents(){
+export default function MyBooking(){
     const query=useQuery({
-        queryKey:["all-event"],
+        queryKey:["booked-event"],
         queryFn:async function () {
-            const user=await Event.get('/all');
-            return user.data
+            const user=await Event.get('/my-booked-event');
+            return user.data?.events
         },
+
+
         
 
     })
