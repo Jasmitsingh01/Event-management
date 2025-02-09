@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "http://localhost:5000";
+export const baseURL = "https://server-gold-one-21.vercel.app";
 
 export const User = axios.create({
   baseURL: baseURL + "/api/v1/user",
