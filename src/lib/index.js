@@ -5,8 +5,9 @@ export const baseURL = "http://localhost:5000";
 export const User = axios.create({
   baseURL: baseURL + "/api/v1/user",
   headers: {
-    'Authorization':window?.localStorage?.getItem('accesstoken') && window?.localStorage?.getItem('accesstoken') !==''? window?.localStorage?.getItem('accesstoken_guest'):'',    "Content-Type": "application/json",
+    'Authorization':window?.localStorage?.getItem('accesstoken') && window?.localStorage?.getItem('accesstoken') !==''? window?.localStorage?.getItem('accesstoken'):'',    "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
+    'Access-Control-Allow-Credentials':true
   },
   withCredentials: true,
 });
@@ -15,9 +16,10 @@ export const User = axios.create({
 export const UserForm = axios.create({
   baseURL: baseURL + "/api/v1/user",
   headers: {
-    'Authorization':window?.localStorage?.getItem('accesstoken') && window?.localStorage?.getItem('accesstoken') !==''? window?.localStorage?.getItem('accesstoken_guest'):'',    "Content-Type": "application/json",
+'Authorization':window?.localStorage?.getItem('accesstoken') && window?.localStorage?.getItem('accesstoken') !==''? window?.localStorage?.getItem('accesstoken'):'',    "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
-    "Content-Type": "multipart/form-data",
+    'Access-Control-Allow-Credentials':true,
+        "Content-Type": "multipart/form-data",
 
   },
   withCredentials: true,
@@ -25,9 +27,9 @@ export const UserForm = axios.create({
 export const Guest = axios.create({
   baseURL: baseURL + "/api/v1/guest",
   headers: {
-    'Authorization':window?.localStorage?.getItem('accesstoken_guest') && window?.localStorage?.getItem('accesstoken_guest') !==''? window?.localStorage?.getItem('accesstoken_guest'):'',
-    "Content-Type": "application/json",
+    'Authorization':window?.localStorage?.getItem('accesstoken_guest') && window?.localStorage?.getItem('accesstoken_guest') !==''? window?.localStorage?.getItem('accesstoken_guest'):'',    "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
+    'Access-Control-Allow-Credentials':true
   },
   withCredentials: true,
 });
@@ -36,9 +38,11 @@ export const Guest = axios.create({
 export const GuestForm = axios.create({
   baseURL: baseURL + "/api/v1/guest",
   headers: {
-    'Authorization':window?.localStorage?.getItem('accesstoken_guest') && window?.localStorage?.getItem('accesstoken_guest') !==''? window?.localStorage?.getItem('accesstoken_guest'):'',
-    "Content-Type": "multipart/form-data",
+'Authorization':window?.localStorage?.getItem('accesstoken_guest') && window?.localStorage?.getItem('accesstoken_guest') !==''? window?.localStorage?.getItem('accesstoken_guest'):'',    "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
+    'Access-Control-Allow-Credentials':true,
+    "Content-Type": "multipart/form-data",
+
   },
   withCredentials: true,
 });
@@ -48,6 +52,7 @@ export const Event = axios.create({
     'Authorization':window?.localStorage?.getItem('accesstoken') && window?.localStorage?.getItem('accesstoken') !==''? window?.localStorage?.getItem('accesstoken_guest'):'',
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
+    'Access-Control-Allow-Credentials':true,
   },
   withCredentials: true,
 });

@@ -15,7 +15,17 @@ function GuestDashboard() {
     const queryClient = useQueryClient();
   
   useEffect(() => {
-      const socket = io(baseURL);
+      const socket = io(baseURL,{
+        extraHeaders:{
+          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Credentials':true,
+  
+        }
+        ,
+        withCredentials:true
+      }
+    
+    );
       socket.on("connect", () => {
         console.log("connected to server", socket?.id);
       });
