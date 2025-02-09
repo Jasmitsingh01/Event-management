@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://server-gold-one-21.vercel.app";
+export const baseURL = "https://eventmangement-evd5.onrender.com";
 
 export const User = axios.create({
   baseURL: baseURL + "/api/v1/user",
