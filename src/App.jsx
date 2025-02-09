@@ -11,7 +11,7 @@ function App() {
   const [isGuest, setIsGuest] = useState(false); // Track guest status
 
   useEffect(() => {
-    const user = localStorage.getItem("acesstoken");
+    const user = localStorage.getItem("accesstoken");
     const Guest = localStorage.getItem("acesstoken_guest");
     if (user && user !== "") {
       setIsAuthenticated(true);

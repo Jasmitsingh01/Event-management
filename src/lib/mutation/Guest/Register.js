@@ -11,10 +11,13 @@ export default function RegisterGuest(){
         }, 
         onSuccess:(data)=>{
 
-            window?.localStorage?.setItem('acesstoken_guest',data?.token?.access_token)
-            window?.localStorage?.setItem('refreshtoken_guest',data?.token?.refresh_token)
-            window.location.reload()
-            navigate('/')      }
+            if (data?.token?.access_token && data?.token?.refresh_token) { // Check if tokens exist
+                localStorage.setItem('acesstoken_guest', data.token.access_token);
+                localStorage.setItem('refreshtoken_guest', data.token.refresh_token);
+                window.location.reload()
+            } else {
+                console.error("Tokens missing from server response:", data);
+                 }    }
 
         
     })

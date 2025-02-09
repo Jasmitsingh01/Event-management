@@ -9,7 +9,14 @@ import { useQueryClient } from "@tanstack/react-query";
 const EventDashboard = () => {
   const queryClient = useQueryClient();
   useEffect(() => {
-    const socket = io(baseURL);
+    const socket = io(baseURL,{
+      extraHeaders:{
+        "Access-Control-Allow-Origin": "*",
+
+      }
+      ,
+      withCredentials:true
+    });
     socket.on("connect", () => {
       console.log("connected to server", socket?.id);
     });
