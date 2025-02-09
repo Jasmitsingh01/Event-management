@@ -12,7 +12,7 @@ export default function ResgisterUser(){
         onSuccess:(data)=>{
             window?.localStorage?.setItem('acesstoken',data?.token?.access_token)
             window?.localStorage?.setItem('refreshtoken',data?.token?.refresh_token)
-            
+            window.location.reload()
             navigate('/')
         }
 

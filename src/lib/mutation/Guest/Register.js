@@ -13,7 +13,7 @@ export default function RegisterGuest(){
 
             window?.localStorage?.setItem('acesstoken_guest',data?.token?.access_token)
             window?.localStorage?.setItem('refreshtoken_guest',data?.token?.refresh_token)
-            
+            window.location.reload()
             navigate('/')      }
 
         
