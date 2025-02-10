@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "http://localhost:5000";
+export const baseURL = "https://eventmangement-evd5.onrender.com";
 
 export const User = axios.create({
   baseURL: baseURL + "/api/v1/user",
@@ -17,8 +17,6 @@ export const UserForm = axios.create({
   baseURL: baseURL + "/api/v1/user",
   headers: {
 'Authorization':window?.localStorage?.getItem('accesstoken') && window?.localStorage?.getItem('accesstoken') !==''? window?.localStorage?.getItem('accesstoken'):'',    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    'Access-Control-Allow-Credentials':true,
         "Content-Type": "multipart/form-data",
 
   },
@@ -39,8 +37,6 @@ export const GuestForm = axios.create({
   baseURL: baseURL + "/api/v1/guest",
   headers: {
 'Authorization':window?.localStorage?.getItem('accesstoken_guest') && window?.localStorage?.getItem('accesstoken_guest') !==''? window?.localStorage?.getItem('accesstoken_guest'):'',    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    'Access-Control-Allow-Credentials':true,
     "Content-Type": "multipart/form-data",
 
   },
@@ -51,8 +47,7 @@ export const Event = axios.create({
   headers: {
     'Authorization':window?.localStorage?.getItem('accesstoken') && window?.localStorage?.getItem('accesstoken') !==''? window?.localStorage?.getItem('accesstoken_guest'):'',
     "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": "*",
-    'Access-Control-Allow-Credentials':true,
+    
   },
   withCredentials: true,
 });
